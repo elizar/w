@@ -8,11 +8,6 @@ import (
 )
 
 func main() {
-	// main handler
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.Error(w, "Beep, Boop!", 200)
-	})
-
 	// setup port and shit
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
@@ -20,7 +15,13 @@ func main() {
 	}
 	addr := fmt.Sprintf(":%s", PORT)
 
+	// main handler
+	http.HandleFunc("/", ok)
+
 	// serve
-	log.Println("Server running on port", PORT)
 	log.Fatal(http.ListenAndServe(addr, nil))
+}
+
+func ok(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "OK!")
 }

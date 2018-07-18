@@ -2,6 +2,11 @@
   "name": "wadiwasi",
   "profile": "default",
   "regions": [
-    "us-east-1"
-  ]
+    "ap-southeast-1"
+  ],
+	"stages": {
+		"staging": {
+			"domain": "w.penzur.xyz"
+		}
+	}
 }
