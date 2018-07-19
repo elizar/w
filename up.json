@@ -4,6 +4,9 @@
   "regions": [
     "ap-southeast-1"
   ],
+	"hooks": {
+		"prebuild": "go generate ./..."
+	},
 	"stages": {
 		"staging": {
 			"domain": "w.penzur.xyz"

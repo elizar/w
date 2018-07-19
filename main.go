@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/elizar/w/tmpl"
 )
 
 func main() {
@@ -23,5 +26,12 @@ func main() {
 }
 
 func ok(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "OK!")
+	data, err := tmpl.Asset("layout.html")
+	if err != nil {
+		http.Error(w, "Not Found", http.StatusNotFound)
+		return
+	}
+
+	layout, _ := template.New("").Parse(string(data))
+	layout.Execute(w, struct{ Title, Name string }{"home", "tibur"})
 }
