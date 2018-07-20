@@ -33,5 +33,5 @@ func ok(w http.ResponseWriter, r *http.Request) {
 	}
 
 	layout, _ := template.New("").Parse(string(data))
-	layout.Execute(w, struct{ Title, Name string }{"home", "tibur"})
+	layout.Execute(w, struct{ Title, Name string }{"Home", "Universe"})
 }

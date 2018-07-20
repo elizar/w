@@ -5,7 +5,11 @@
     "ap-southeast-1"
   ],
 	"hooks": {
-		"prebuild": "go generate ./..."
+		"prebuild": "go generate ./...",
+		"clean": [
+			"rm server",
+			"rm tmpl/bindata.go"
+		]
 	},
 	"stages": {
 		"staging": {

@@ -2,11 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{.Title}}</title>
+    <title>W - {{.Title}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            color: rgba(0,0,0,0.9);
+            font-size: 16px;
+            line-height: 1.5em;
+            padding: 1em;
+            width: 960px;
+        }
+
+        h1, h2, h3, h4, h5, p {
+            margin-bottom: 1em;
+        }
+
+        p {
+            opacity: 0.8;
+        }
+
+        a, a:active, a:visited {
+            color: rgba(0,0,255,1);
+            display: inline-block;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,255,1);
+        }
+
+        a:hover {
+            color: rgba(0,0,120,1);
+        }
+
+        hr {
+            height: 1px;
+            border: none;
+            background-color: rgba(0,0,0,0.2);
+            margin: 2em 0;
+        }
+
+
+        /* classes and shit */
+        .title a, .title a:active, .title a:visited {
+            text-decoration: none;
+            border: 0;
+        }
+
+        .wspacer {
+            display: inline-block;
+            padding: 0 1em;
+        }
+
+        .separator {
+            width: 64px;
+        }
+
+        .copy {
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Hello, {{.Name}}
-    </h1>
+    <header>
+        <h1 class="title"><a href="/">W</a></h1>
+    </header>
+
+    <main>
+        <p class="sub-title">
+            Create and publish anything that comes to mind.
+        </p>
+    </main>
+
+    <footer>
+        <hr class="separator"/>
+        <p class="copy">
+            Copyright &copy; 2018 Wadiwasi. All rights reserved.
+        </p>
+        <p>
+            <a href="/signup">
+                SIGN UP
+            </a>
+            <span class="wspacer"> / </span>
+            <a href="/login">
+                LOG IN
+            </a>
+        </p>
+    </footer>
 </body>
 </html>
