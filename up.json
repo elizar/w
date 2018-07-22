@@ -4,11 +4,17 @@
   "regions": [
     "ap-southeast-1"
   ],
+	"environment": {
+		"UP": "1"
+	},
+	"error_pages": {
+		"disable": true
+	},
 	"hooks": {
 		"prebuild": "go generate ./...",
 		"clean": [
 			"rm server",
-			"rm tmpl/bindata.go"
+			"rm tmpl/*bindata.go"
 		]
 	},
 	"stages": {

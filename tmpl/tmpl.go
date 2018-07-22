@@ -1,2 +1,2 @@
-//go:generate go-bindata -pkg tmpl .
+//go:generate go-bindata -pkg tmpl -o tmpl_bindata.go -ignore '\.go' .
 package tmpl

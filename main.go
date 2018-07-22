@@ -1,37 +1,36 @@
 package main
 
 import (
-	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/elizar/w/tmpl"
+	"github.com/elizar/w/routes"
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/pat"
 )
 
 func main() {
-	// setup port and shit
-	PORT := os.Getenv("PORT")
-	if PORT == "" {
-		PORT = "3000"
+	r := pat.New()
+
+	// register routes
+	routes.RegisterRoutes(r)
+
+	// Use gorilla logger if server is not mounted
+	// through `up start`
+	if os.Getenv("UP") == "" {
+		h := handlers.LoggingHandler(os.Stdout, r)
+		http.Handle("/", h)
+	} else {
+		http.Handle("/", r)
 	}
-	addr := fmt.Sprintf(":%s", PORT)
 
-	// main handler
-	http.HandleFunc("/", ok)
+	// port
+	port := ":" + os.Getenv("PORT")
 
-	// serve
-	log.Fatal(http.ListenAndServe(addr, nil))
-}
-
-func ok(w http.ResponseWriter, r *http.Request) {
-	data, err := tmpl.Asset("layout.html")
+	// listen and serve
+	err := http.ListenAndServe(port, nil)
 	if err != nil {
-		http.Error(w, "Not Found", http.StatusNotFound)
-		return
+		log.Fatalln("ListenAndServe:", err)
 	}
-
-	layout, _ := template.New("").Parse(string(data))
-	layout.Execute(w, struct{ Title, Name string }{"Home", "Universe"})
 }
