@@ -18,12 +18,12 @@ func main() {
 
 	// Use gorilla logger if server is not mounted
 	// through `up start`
-	if os.Getenv("UP_STAGE") == "" {
-		h := handlers.LoggingHandler(os.Stdout, r)
-		http.Handle("/", h)
-	} else {
-		http.Handle("/", r)
-	}
+	http.Handle("/", func() http.Handler {
+		if os.Getenv("UP_STAGE") != "" {
+			return r
+		}
+		return handlers.LoggingHandler(os.Stdout, r)
+	}())
 
 	// port
 	port := ":" + os.Getenv("PORT")
