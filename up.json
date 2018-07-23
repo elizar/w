@@ -5,7 +5,6 @@
     "ap-southeast-1"
   ],
 	"environment": {
-		"UP": "1"
 	},
 	"error_pages": {
 		"disable": true

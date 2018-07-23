@@ -7,7 +7,6 @@ dev: tmpl/tmpl_bindata.go
 
 # up start
 dev.up: tmpl/tmpl_bindata.go
-	@export UP=1
 	@up start
 .PHONY: dev.up
 

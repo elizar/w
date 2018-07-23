@@ -18,7 +18,7 @@ func main() {
 
 	// Use gorilla logger if server is not mounted
 	// through `up start`
-	if os.Getenv("UP") == "" {
+	if os.Getenv("UP_STAGE") == "" {
 		h := handlers.LoggingHandler(os.Stdout, r)
 		http.Handle("/", h)
 	} else {
