@@ -1,5 +1,5 @@
 {
-  "name": "wadiwasi",
+  "name": "w",
   "profile": "default",
   "regions": [
     "ap-southeast-1"
@@ -18,7 +18,8 @@
 	},
 	"stages": {
 		"staging": {
-			"domain": "w.penzur.xyz"
+			"domain": "w.penzur.xyz",
+			"zone": false
 		}
 	}
 }
