@@ -4,22 +4,22 @@
   "regions": [
     "ap-southeast-1"
   ],
-	"environment": {
-	},
-	"error_pages": {
-		"disable": true
-	},
-	"hooks": {
-		"prebuild": "go generate ./...",
-		"clean": [
-			"rm server",
-			"rm tmpl/*bindata.go"
-		]
-	},
-	"stages": {
-		"staging": {
-			"domain": "w.penzur.xyz",
-			"zone": false
-		}
-	}
+  "environment": {
+  },
+  "error_pages": {
+    "disable": true
+  },
+  "hooks": {
+    "prebuild": "go generate ./...",
+    "clean": [
+      "rm server",
+      "rm tmpl/*bindata.go"
+    ]
+  },
+  "stages": {
+    "staging": {
+      "domain": "w.penzur.xyz",
+      "zone": false
+    }
+  }
 }
